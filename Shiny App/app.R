@@ -14,8 +14,8 @@ library("psych")
 library('FinTS')
 
 
-# CARGANDO DATOS --------------------------------------------------------------------------------------------# CARGA DE DATOS --------------------------------------------------------------------------------------------
- file <- "Datos/Turismo_Internacional.csv"
+# CARGANDO DATOS --------------------------------------------------------------------------------------------
+file <- "Datos/Turismo_Internacional.csv"
 
 # Estos datos estan dados en miles.
 turismo <- read.csv(file)
