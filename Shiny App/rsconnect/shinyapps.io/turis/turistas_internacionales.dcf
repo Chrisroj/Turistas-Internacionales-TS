@@ -5,9 +5,9 @@ account: turis
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4250551
-bundleId: 4698867
+bundleId: 4699335
 url: https://turis.shinyapps.io/turistas_internacionales/
-when: 1623281838.70509
-lastSyncTime: 1623281838.70509
+when: 1623293503.54681
+lastSyncTime: 1623293503.54681
 asMultiple: FALSE
 asStatic: FALSE
