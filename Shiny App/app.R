@@ -40,24 +40,6 @@ ui <- fluidPage(theme = shinytheme("superhero"),
                 navbarPage(
                     # theme = "flatly",  # <--- To use a theme, uncomment this
                     "Turismo Internacional",
-                    tabPanel("Predicción",
-                             sidebarPanel(
-                                 
-                                 # Input: Slider for the number of anios ----
-                                 sliderInput(inputId = "anios_predecir",
-                                             label = "Años a predecir:",
-                                             min = 1,
-                                             max = 10,
-                                             value = 2)
-                                 
-                             ), # sidebarPanel
-                             mainPanel(
-                                 
-                                 plotOutput(outputId = "serie_tiempo")
-                                 
-                             ) # mainPanel
-                             
-                    ), # Navbar 1, tabPanel
                     tabPanel("Mapas de Calor",
                              sidebarPanel(
                                  
@@ -77,8 +59,26 @@ ui <- fluidPage(theme = shinytheme("superhero"),
                              ) # mainPanel
                              
                     ),
+                    tabPanel("Predicción",
+                             sidebarPanel(
+                                 
+                                 # Input: Slider for the number of anios ----
+                                 sliderInput(inputId = "anios_predecir",
+                                             label = "Años a predecir:",
+                                             min = 1,
+                                             max = 10,
+                                             value = 2)
+                                 
+                             ), # sidebarPanel
+                             mainPanel(
+                                 
+                                 plotOutput(outputId = "serie_tiempo")
+                                 
+                             ) # mainPanel
+                             
+                    ),
                     tabPanel("Fuentes", 
-                             p(HTML("El código con el cuál se realizó está aplicación se encuentra en <a href='https://github.com/Chrisroj/Turistas-Internacionales-TS' target='_blank'>Github</a>.")),
+                             p(HTML("El código con el cuál se realizó esta aplicación se encuentra en <a href='https://github.com/Chrisroj/Turistas-Internacionales-TS' target='_blank'>Github</a>.")),
                              p(HTML("Los datos que utilizamos para generar las predicciones y los mapas de calor fueron consultados del compendio estadístico de la sección 3_5 y 7c respectivamente.")),
                              p(HTML("[1]Compendio Estadístico del Turismo en México 2019. (2019). Secretaría de Turismo. <a href='https://www.datatur.sectur.gob.mx/SitePages/CompendioEstadistico.aspx' target='_blank'>datatur</a>"))
                              )
@@ -95,7 +95,7 @@ server <- function(input, output) {
         anios <- input$anios_predecir #Se mueve para los anios que se quieran predecir
         anios_title <- 2019 + anios #El tamanio del grafico
         
-        # Dado lo anterior veamos el intervalo de confianza a una predicción de los aÃ±os que se quieran
+        # Dado lo anterior veamos el intervalo de confianza a una predicciÃ³n de los años que se quieran
         predic <-predict(SARIMA_13_1_0_12_0_0, n.ahead = anios*12) # Ya que trabajamos en meses
         
         # Prediccion a dataframe 
